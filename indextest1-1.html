@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/icon/favicon.png">
+  <title>Snake Game</title>
+  <style>
+    /* Your existing styles... */
+
+    #magic8ball-answer-container {
+      margin-left: 10px; /* Adjust the margin as needed */
+    }
+
+    #magic8ball-answer {
+      margin-top: 10px;
+      align-self: flex-start;
+    }
+
+    #chat-box {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 250px;
+      background: #333;
+      border: 2px solid white;
+      border-radius: 5px;
+      padding: 10px;
+      overflow-y: auto;
+      max-height: calc(100% - 20px);
+      color: white;
+    }
+
+    .message-container {
+      margin-bottom: 10px;
+    }
+
+    .question {
+      color: gray;
+    }
+
+    .answer {
+      margin-top: 5px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- Snake Game Canvas -->
+  <!-- Your existing canvas and game elements... -->
+
+  <!-- Chat Box for Magic 8 Ball -->
+  <div id="chat-box">
+    <!-- Eight ball image -->
+    <div id="magic8ball-container">
+      <img src="/img/8ball.png" alt="Magic 8 Ball" id="eight-ball-image">
+      <div id="magic8ball-answer-container">
+        <div id="magic8ball-answer"></div>
+      </div>
+    </div>
+
+    <div id="question-container">
+      <input type="text" id="question" placeholder="Ask anything">
+      <button id="ask-button" onclick="getMagic8BallAnswer()">Ask</button>
+    </div>
+  </div>
+
+  <script>
+    // javascript rn
+
+    // Adding missing variable declaration
+    var questionInput = document.getElementById('question');
+
+    function getMagic8BallAnswer() {
+      const answerElement = document.getElementById('magic8ball-answer');
+      const question = questionInput.value.trim();
+
+      if (question !== '' && question !== 'Ask anything') {
+        const answer = generateMagic8BallAnswer();
+        answerElement.innerHTML = `<strong>Magic 8 Ball says:</strong> ${answer}`;
+        addMessageToChat(question, answer);
+        questionInput.value = 'Ask anything';
+        questionInput.style.color = 'gray';
+      } else {
+        answerElement.textContent = 'Please enter a valid question.';
+      }
+    }
+  </script>
+</body>
+
+</html>
