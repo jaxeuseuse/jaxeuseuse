@@ -49,7 +49,34 @@
 
 <body>
   <!-- Snake Game Canvas -->
-  <!-- Your existing canvas and game elements... -->
+  <canvas width="400" height="400" id="game"></canvas>
+  <div id="score">Score: 0</div>
+  <div id="high-score">High Score: 0</div>
+  <div id="game-over-popup">
+    <p>Game Over!</p>
+    <button id="restart-button">Restart</button>
+  </div>
+  <div id="pause-button">Pause</div>
+
+  <!-- Special switch -->
+  <div id="special-switch-container">
+    <div id="special-label">Special</div>
+    <label class="switch">
+      <input type="checkbox" id="special-switch" onclick="toggleSpecialSwitch()">
+      <span class="slider"></span>
+    </label>
+    <div id="off-label">OFF</div>
+    <div id="on-label">ON</div>
+  </div>
+
+  <!-- Speed buttons -->
+  <div id="speed-buttons">
+    <!-- Add your speed buttons here -->
+  </div>
+
+  <div id="speed-buttons-right">
+    <!-- Add your speed buttons here -->
+  </div>
 
   <!-- Chat Box for Magic 8 Ball -->
   <div id="chat-box">
