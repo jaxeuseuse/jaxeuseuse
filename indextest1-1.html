@@ -315,7 +315,7 @@
   </div>
 
   <script>
-var canvas = document.getElementById('game');
+    var canvas = document.getElementById('game');
     var context = canvas.getContext('2d');
     var scoreElement = document.getElementById('score');
     var highScoreElement = document.getElementById('high-score');
@@ -591,6 +591,28 @@ var apple = {
         answerElement.textContent = 'Ask me anything';
       }
     }
+        questionInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent the default behavior of the Enter key
+      getMagic8BallAnswer();
+    }
+  });
+
+  function getMagic8BallAnswer() {
+    const answerElement = document.getElementById('magic8ball-answer');
+    const question = questionInput.value.trim();
+
+    if (question !== '' && question !== 'Ask anything') {
+      const answer = generateMagic8BallAnswer();
+      answerElement.innerHTML = `<strong>Magic 8 Ball says:</strong> ${answer}`;
+      addMessageToChat(question, answer);
+      questionInput.value = 'Ask anything';
+      questionInput.style.color = 'gray';
+    } else {
+      answerElement.textContent = 'Ask me anything';
+    }
+  }
+</script>
   </script>
 </body>
 
